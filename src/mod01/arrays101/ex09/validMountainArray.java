@@ -1,6 +1,4 @@
-package mod01.arrays101.ex10;
-
-import java.util.HashSet;
+package mod01.arrays101.ex09;
 
 public class validMountainArray {
     public static void main(String[] args) {

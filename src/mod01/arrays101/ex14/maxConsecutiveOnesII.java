@@ -1,10 +1,10 @@
-package mod01.arrays101.ex15;
+package mod01.arrays101.ex14;
 
 public class maxConsecutiveOnesII {
     public static void main(String[] args) {
-        int[] nums1 = new int[]{1,0,1,1,0};
-        int[] nums2 = new int[]{1,0,1,1,0,1};
-        int[] nums3 = new int[]{1,1,0,1};
+        int[] nums1 = new int[]{1, 0, 1, 1, 0};
+        int[] nums2 = new int[]{1, 0, 1, 1, 0, 1, 1};
+        int[] nums3 = new int[]{1, 1, 0, 1};
 
         System.out.println(findMaxConsecutiveOnes(nums1));
         System.out.println(findMaxConsecutiveOnes(nums2));
@@ -31,7 +31,7 @@ public class maxConsecutiveOnesII {
 
         return maxConsOnes;*/
 
-        int leftIndex = 0;
+        /*int leftIndex = 0;
         int rightIndex = 0;
         int maxConsOnes = 0;
         int numZeros = 0;
@@ -48,6 +48,24 @@ public class maxConsecutiveOnesII {
             rightIndex++;
         }
 
-        return maxConsOnes;
+        return maxConsOnes;*/
+
+        //infinite stream
+        int left = 0;
+        int right = 0;
+
+        int zeroIndex = -1;
+        int longestSeq = 0;
+        while (right < nums.length) {
+            if (nums[right] == 0) {
+                left = zeroIndex + 1;
+                zeroIndex = right;
+            }
+
+            longestSeq = Math.max(longestSeq, right - left + 1);
+            right++;
+        }
+
+        return longestSeq;
     }
 }

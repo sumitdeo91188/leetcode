@@ -22,7 +22,7 @@ public class reverseLinkedList {
     }
 
     private static ListNode reverseList(ListNode head) {
-        if (head != null) {
+        /*if (head != null) {
             ListNode firstNode = head;
             while (firstNode.next != null) {
                 ListNode temp = firstNode.next;
@@ -32,6 +32,23 @@ public class reverseLinkedList {
 
             }
         }
+        return head;*/
+
+        if (head != null && head.next != null) {
+            ListNode prev = head;
+            ListNode curr = head.next;
+
+            while (curr != null) {
+                ListNode next = curr.next;
+                curr.next = prev;
+                //update
+                prev = curr;
+                curr = next;
+            }
+            head.next = null;
+            head = prev;
+        }
+
         return head;
     }
 

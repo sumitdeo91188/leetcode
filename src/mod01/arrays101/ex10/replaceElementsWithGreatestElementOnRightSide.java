@@ -1,4 +1,4 @@
-package mod01.arrays101.ex11;
+package mod01.arrays101.ex10;
 
 public class replaceElementsWithGreatestElementOnRightSide {
     public static void main(String[] args) {

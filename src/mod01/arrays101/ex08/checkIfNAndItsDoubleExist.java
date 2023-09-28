@@ -1,7 +1,6 @@
-package mod01.arrays101.ex09;
+package mod01.arrays101.ex08;
 
 import java.util.HashSet;
-import java.util.Hashtable;
 
 public class checkIfNAndItsDoubleExist {
     public static void main(String[] args) {

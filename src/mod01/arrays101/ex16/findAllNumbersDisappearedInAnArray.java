@@ -1,7 +1,6 @@
-package mod01.arrays101.ex17;
+package mod01.arrays101.ex16;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 
 public class findAllNumbersDisappearedInAnArray {

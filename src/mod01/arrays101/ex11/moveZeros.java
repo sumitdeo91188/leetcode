@@ -1,4 +1,4 @@
-package mod01.arrays101.ex12;
+package mod01.arrays101.ex11;
 
 public class moveZeros {
     public static void main(String[] args) {

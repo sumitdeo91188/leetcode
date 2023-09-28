@@ -1,5 +1,7 @@
 package mod02.linkedlist.ex09;
 
+import java.util.List;
+
 public class palindromeLinkedList {
     public static void main(String[] args) {
         ListNode node0 = new ListNode(1);
@@ -15,50 +17,48 @@ public class palindromeLinkedList {
     }
 
     private static boolean isPalindrome(ListNode head) {
-        if (head != null) {
-            int size = 0;
-            ListNode current = head;
-            while (current != null) {
-                size++;
-                current = current.next;
-            }
-
-            if (size == 1) {
-                return true;
-            }
-
-            ListNode secondHalf;
-            current = head;
-            for (int i = 0; i < size / 2; i++) {
-                current = current.next;
-            }
-            if (size % 2 == 0) {
-                secondHalf = current;
-            } else {
-                secondHalf = current.next;
-            }
-
-            secondHalf = reverse(secondHalf);
-            current = head;
-            while (secondHalf != null) {
-                if (current.val != secondHalf.val) {
-                    return false;
-                }
-                secondHalf = secondHalf.next;
-                current = current.next;
-            }
-            return true;
+        if (head != null && head.next != null) {
+            ListNode endOfFirstHalf = getEndOfFirstHalf(head);
+            ListNode startOfSecondHalf = endOfFirstHalf.next;
+            endOfFirstHalf.next = null;
+            ListNode reverseHead = reverse(startOfSecondHalf);
+            return isIdentical(head, reverseHead);
         }
         return false;
     }
 
+    private static boolean isIdentical(ListNode list1, ListNode list2) {
+        while (list1 != null && list2 != null) {
+            if (list1.val != list2.val) {
+                return false;
+            }
+            list1 = list1.next;
+            list2 = list2.next;
+        }
+        return true;
+    }
+
+    private static ListNode getEndOfFirstHalf(ListNode head) {
+        ListNode fastNode = head;
+        ListNode slowNode = head;
+
+        while (fastNode != null && fastNode.next != null) {
+            fastNode = fastNode.next.next;
+            slowNode = slowNode.next;
+        }
+        return slowNode;
+    }
+
     private static ListNode reverse(ListNode head) {
-        ListNode first = head;
-        while (first.next != null) {
-            ListNode temp = first.next;
-            first.next = first.next.next;
-            temp.next = head;
-            head = temp;
+        if (head != null && head.next != null) {
+            ListNode prev = head;
+            ListNode curr = head.next;
+            while (curr != null) {
+                ListNode next = curr.next;
+                curr.next = prev;
+                prev = curr;
+                curr = next;
+            }
         }
         return head;
     }

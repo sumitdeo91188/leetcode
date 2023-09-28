@@ -1,4 +1,4 @@
-package mod01.arrays101.ex13;
+package mod01.arrays101.ex12;
 
 public class sortArrayByParity {
     public static void main(String[] args) {

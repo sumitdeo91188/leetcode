@@ -1,4 +1,4 @@
-package mod01.arrays101.ex14;
+package mod01.arrays101.ex13;
 
 public class heightChecker {
     public static void main(String[] args) {
