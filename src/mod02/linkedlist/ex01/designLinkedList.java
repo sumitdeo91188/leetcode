@@ -32,7 +32,6 @@ public class designLinkedList {
 
         public MyLinkedList() {
             this.size = 0;
-            head = new ListNode(0);
         }
 
         public int get(int index) {

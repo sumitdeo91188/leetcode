@@ -4,36 +4,29 @@ import java.util.*;
 
 public class firstUniqueCharacterInAString {
     public static void main(String[] args) {
-        findRestaurant(new String[]{"Shogun","Tapioca Express","Burger King","KFC"},
-                new String[]{"Piatti","The Grill at Torrey Pines","Hungry Hunter Steakhouse","Shogun"});
+        System.out.println(firstUniqChar("leetcode"));
+        System.out.println(firstUniqChar("loveleetcode"));
     }
 
-    public static String[] findRestaurant(String[] list1, String[] list2) {
-        HashMap<String, Integer> map1 = new HashMap<>();
+    public static int firstUniqChar(String s) {
+        HashMap<Character, Integer> map = new HashMap<>();
 
-        for (int i = 0; i < list1.length; i++) {
-            map1.put(list1[i], i);
-        }
-
-        int lowestSum = Integer.MAX_VALUE;
-        List<String> resultList = new ArrayList<>();
-        for (int i = 0; i < list2.length; i++) {
-            if (map1.containsKey(list2[i])) {
-                int sum = i + map1.get(list2[i]);
-                if (sum < lowestSum) {
-                    resultList = new ArrayList<>();
-                    resultList.add(list2[i]);
-                    lowestSum = sum;
-                } else if (sum == lowestSum) {
-                    resultList.add(list2[i]);
-                }
+        for (int i = 0; i < s.length(); i++) {
+            Character ch = s.charAt(i);
+            if(map.containsKey(ch)) {
+                map.put(ch, -1);
+            } else {
+                map.put(ch, i);
             }
         }
 
-        String[] result = new String[resultList.size()];
-        for (int i = 0; i < resultList.size(); i++) {
-            result[i] = resultList.get(i);
+        int minIndex = s.length();
+        for (Map.Entry<Character, Integer> entry : map.entrySet()) {
+            if (entry.getValue() != -1 && entry.getValue() < minIndex) {
+                minIndex = entry.getValue();
+            }
         }
-        return result;
+
+        return minIndex == s.length() ? -1 : minIndex;
     }
 }

@@ -1,34 +1,29 @@
-# Replace Elements with Greatest Element on Right Side
+# Move Zeroes
 
 ## Problem Statement
-Given an array arr, replace every element in that array with the greatest element among the elements to its right, and replace the last element with -1.
+Given an integer array nums, move all 0's to the end of it while maintaining the relative order of the non-zero elements.
 
-After doing so, return the array.
+Note that you must do this in-place without making a copy of the array.
 
 
 
 Example 1:
 
-Input: arr = [17,18,5,4,6,1]
-Output: [18,6,6,6,1,-1]
-Explanation:
-- index 0 --> the greatest element to the right of index 0 is index 1 (18).
-- index 1 --> the greatest element to the right of index 1 is index 4 (6).
-- index 2 --> the greatest element to the right of index 2 is index 4 (6).
-- index 3 --> the greatest element to the right of index 3 is index 4 (6).
-- index 4 --> the greatest element to the right of index 4 is index 5 (1).
-- index 5 --> there are no elements to the right of index 5, so we put -1.
-  Example 2:
+Input: nums = [0,1,0,3,12]
+Output: [1,3,12,0,0]
+Example 2:
 
-Input: arr = [400]
-Output: [-1]
-Explanation: There are no elements to the right of index 0.
+Input: nums = [0]
+Output: [0]
 
 
 Constraints:
 
-1 <= arr.length <= 104
-1 <= arr[i] <= 105
+1 <= nums.length <= 104
+-231 <= nums[i] <= 231 - 1
+
+
+Follow up: Could you minimize the total number of operations done?
 
 ## LeetCode Link
-https://leetcode.com/explore/learn/card/fun-with-arrays/511/in-place-operations/3259
+https://leetcode.com/explore/featured/card/fun-with-arrays/511/in-place-operations/3157/

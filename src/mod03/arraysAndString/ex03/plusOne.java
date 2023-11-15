@@ -2,7 +2,7 @@ package mod03.arraysAndString.ex03;
 
 public class plusOne {
     public static void main(String[] args) {
-        int[] nums = new int[]{9, 9, 9, 9};
+        int[] nums = new int[]{8, 8, 9, 9};
         int[] result = plusOne(nums);
 
         for (int num : result) {

@@ -18,7 +18,7 @@ public class happyNumber {
         if (set.contains(sum)) {
             return false;
         } else if (sum == 1) {
-            set = new HashSet<>();
+            //set = new HashSet<>();
             return true;
         }
         set.add(sum);

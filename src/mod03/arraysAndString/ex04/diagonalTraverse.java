@@ -2,7 +2,7 @@ package mod03.arraysAndString.ex04;
 
 public class diagonalTraverse {
     public static void main(String[] args) {
-        int[][] mat = new int[][]{{1,2,3}, {4,5,6}, {7,8,9}};
+        int[][] mat = new int[][]{{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
         int[] result = findDiagonalOrder(mat);
 
         for (int num : result) {
@@ -10,26 +10,50 @@ public class diagonalTraverse {
         }
     }
 
-    public static int[] findDiagonalOrder(int[][] mat) {
-        if (mat == null || mat.length == 0) {
-            return new int[]{0};
-        }
+    public static int[] findDiagonalOrder(int[][] matrix) {
+        if (matrix == null || matrix.length == 0)
+            return new int[0];
 
-        int m = mat.length;
-        int n = mat[0].length;
 
-        int[] result = new int[mat.length * mat[0].length];
+        int row = matrix.length;
+        int col = matrix[0].length;
+        int total = row * col;
+        int[] result = new int[total];
 
-        for (int i = 0; i < mat.length; i++) {
-            for (int j = 0; j < mat[0].length; j++) {
-                switch (i + j) {
-                    case 0:
+        int k = 0;
+        int i = 0;
+        int j = 0;
+        boolean up = true;
+        while (k < total) {
+            result[k] = matrix[i][j];
 
+
+            if (up) {
+                if (i == 0 && j < col - 1) {
+                    j++;
+                    up = false;
+                } else if (j == col - 1) {
+                    i++;
+                    up = false;
+                } else {
+                    i--;
+                    j++;
+                }
+            } else { //down
+                if (i < row - 1 && j == 0) {
+                    i++;
+                    up = true;
+                } else if (i == row - 1) {
+                    j++;
+                    up = true;
+                } else {
+                    i++;
+                    j--;
                 }
             }
-            
+
+            k++;
         }
-        
         return result;
     }
 }
