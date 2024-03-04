@@ -6,30 +6,29 @@ import java.util.List;
 
 public class pascalsTriangle {
     public static void main(String[] args) {
-        generate(5);
+        strStr("mississippi", "issip");
     }
 
-    public static List<List<Integer>> generate(int numRows) {
-        List<List<Integer>> result = new ArrayList<>();
+    public static int strStr(String haystack, String needle) {
+        if (haystack.length() < needle.length())
+            return -1;
 
-        for (int i = 0; i < numRows; i++) {
-            if (i == 0) {
-                result.add(List.of(1));
-            } else if (i == 1) {
-                result.add(List.of(1, 1));
-            } else {
-                List<Integer> list = new ArrayList<>();
-                list.add(1);
-
-                for (int j = 0; j < i - 1; j++) {
-                    list.add(result.get(i - 1).get(j) + result.get(i - 1).get(j + 1));
+        for (int i = 0; i <= haystack.length() - needle.length(); i++) {
+            int startIndex = i;
+            for (int j = 0; j <= needle.length(); j++) {
+                if (j == needle.length()) {
+                    return startIndex;
                 }
-
-                list.add(1);
-                result.add(list);
+                if (haystack.charAt(i) == needle.charAt(j)) {
+                    i++;
+                } else {
+                    i--;
+                    break;
+                }
             }
+            i++;
         }
 
-        return result;
+        return -1;
     }
 }

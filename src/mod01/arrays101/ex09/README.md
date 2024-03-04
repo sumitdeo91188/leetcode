@@ -1,29 +1,33 @@
-# Check If N and Its Double Exist
+# Valid Mountain Array
 
 ## Problem Statement
-Given an array arr of integers, check if there exist two indices i and j such that :
+Given an array of integers arr, return true if and only if it is a valid mountain array.
 
-i != j
-0 <= i, j < arr.length
-arr[i] == 2 * arr[j]
+Recall that arr is a mountain array if and only if:
 
+arr.length >= 3
+There exists some i with 0 < i < arr.length - 1 such that:
+arr[0] < arr[1] < ... < arr[i - 1] < arr[i]
+arr[i] > arr[i + 1] > ... > arr[arr.length - 1]
 
 Example 1:
 
-Input: arr = [10,2,5,3]
-Output: true
-Explanation: For i = 0 and j = 2, arr[i] == 10 == 2 * 5 == 2 * arr[j]
+Input: arr = [2,1]
+Output: false
 Example 2:
 
-Input: arr = [3,1,7,11]
+Input: arr = [3,5,5]
 Output: false
-Explanation: There is no i and j that satisfy the conditions.
+Example 3:
+
+Input: arr = [0,3,2,1]
+Output: true
 
 
 Constraints:
 
-2 <= arr.length <= 500
--103 <= arr[i] <= 103
+1 <= arr.length <= 104
+0 <= arr[i] <= 104
 
 ## LeetCode Link
-https://leetcode.com/explore/learn/card/fun-with-arrays/527/searching-for-items-in-an-array/3250/
+https://leetcode.com/explore/learn/card/fun-with-arrays/527/searching-for-items-in-an-array/3251/

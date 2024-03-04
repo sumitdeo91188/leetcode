@@ -14,21 +14,20 @@ public class heightChecker {
     }
 
     public static int heightChecker(int[] heights) {
-        int[] buckets = new int[101];
+        int[] array = new int[101];
 
         for (int height : heights) {
-            buckets[height]++;
+            array[height]++;
         }
 
         int count = 0;
         int index = 0;
-
-        for (int i = 1; i < buckets.length; i++) {
-            while (buckets[i] > 0) {
-                if (i != heights[index++]) {
+        for (int i = 1; i < array.length; i++) {
+            while (array[i] > 0) {
+                if (heights[index++] != i) {
                     count++;
                 }
-                buckets[i]--;
+                array[i]--;
             }
         }
         return count;
