@@ -81,8 +81,8 @@ public class MaxHeap {
                 // If the deleted element is larger than the left or right child
                 // its value needs to be exchanged with the smaller value
                 // of the left and right child
-                if (maxHeap[index] > maxHeap[left] || maxHeap[index] > maxHeap[right]) {
-                    if (maxHeap[left] < maxHeap[right]) {
+                if (maxHeap[index] < maxHeap[left] || maxHeap[index] < maxHeap[right]) {
+                    if (maxHeap[left] > maxHeap[right]) {
                         int temp = maxHeap[left];
                         maxHeap[left] = maxHeap[index];
                         maxHeap[index] = temp;

@@ -54,8 +54,7 @@ public class designHashSet {
             }
 
             public void insert(Integer key) {
-                int index = bucket.indexOf(key);
-                if (index == -1) {
+                if (!bucket.contains(key)) {
                     bucket.addFirst(key);
                 }
             }
@@ -65,8 +64,7 @@ public class designHashSet {
             }
 
             public boolean exists(Integer key) {
-                int index = bucket.indexOf(key);
-                return index != -1;
+                return bucket.contains(key);
             }
         }
     }

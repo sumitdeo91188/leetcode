@@ -1,28 +1,30 @@
-# Reverse String
+# Kth Largest Element in an Array
 
 ## Problem Statement
 
-Write a function that reverses a string. The input string is given as an array of characters s.
+Given an integer array nums and an integer k, return the kth largest element in the array.
 
-You must do this by modifying the input array in-place with O(1) extra memory.
+Note that it is the kth largest element in the sorted order, not the kth distinct element.
+
+Can you solve it without sorting?
 
 
 
 Example 1:
 
-Input: s = ["h","e","l","l","o"]
-Output: ["o","l","l","e","h"]
+Input: nums = [3,2,1,5,6,4], k = 2
+Output: 5
 Example 2:
 
-Input: s = ["H","a","n","n","a","h"]
-Output: ["h","a","n","n","a","H"]
+Input: nums = [3,2,3,1,2,4,5,5,6], k = 4
+Output: 4
 
 
 Constraints:
 
-1 <= s.length <= 105
-s[i] is a printable ascii character.
+1 <= k <= nums.length <= 105
+-104 <= nums[i] <= 104
 
 ## LeetCode link
 
-https://leetcode.com/explore/learn/card/recursion-i/250/principle-of-recursion/1440/
+https://leetcode.com/explore/learn/card/heap/646/practices/4014/
